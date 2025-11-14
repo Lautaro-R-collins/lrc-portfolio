@@ -28,9 +28,12 @@ const technologies = [
             height="30"
             loading="lazy"
           />
-          <span class="text-lg font-medium text-white">
-            {tech.charAt(0).toUpperCase() + tech.slice(1)}
-          </span>
+          <span
+  class="text-lg font-medium text-white"
+  style="text-shadow: 0 0 6px oklch(0 0 0 / 0.45);"
+>
+  {tech}
+</span>
         </div>
       ))
     }
@@ -47,7 +50,7 @@ const technologies = [
     }
   }
   .animate-scroll {
-    animation: scroll 60s linear infinite;
+    animation: scroll 60s linear infinite; 
   }
 
   @media (min-width: 768px) {

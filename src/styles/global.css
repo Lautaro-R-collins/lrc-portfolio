@@ -1,67 +1,64 @@
 @import "tailwindcss";
 
+/* === PALETA PRINCIPAL === */
 .primary {
-  color: #7836cf;
+  color: #d4a373;
 }
 .secondary {
-  color: #512092;
+  color: #7f5539;
 }
 .bg-primary {
-  background-color: #7836cf;
+  background-color: #d4a373;
 }
 .bg-secondary {
-  background-color: #512092;
+  background-color: #7f5539;
 }
 .text-primary {
-  color: #7836cf;
+  color: #d4a373;
 }
 
-/* reglas hover (usar estas clases directamente) */
+/* === HOVERS === */
 .hover-text-secondary:hover {
-  color: #7836cf;
+  color: #d4a373;
 }
 .hover-bg-secondary:hover {
-  background-color: #7836cf;
+  background-color: #d4a373;
 }
 .hover\:bg-secondary:hover {
-  background-color: #512092;
+  background-color: #7f5539;
 }
 .hover\:text-secondary:hover {
-  color: #512092;
+  color: #7f5539;
 }
 
+/* === SOMBRAS DE TEXTO === */
 .text-shadow {
-  text-shadow: 2px 2px 0 #620deb;
+  text-shadow: 2px 2px 0 #b08968;
 }
-
 .text-shadow-cyan {
-  text-shadow: 2px 2px 0 #0debd8;
+  text-shadow: 2px 2px 0 #ffd6a5;
 }
 
-/* estilos del home */
 
+/* === BACKGROUNDS === */
+.bg-gray-900 {
+  background-color: oklch(0.36 0.01 269.99);
+}
+.bg-gray-950 {
+  background-color: oklch(0.28 0.01 269.99);
+}
+
+/* === ANIMACIONES HOME === */
 @keyframes gradientMove {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  50% {
-    transform: translateX(-250px) translateY(120px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-250px) translateY(120px); }
+  100% { transform: translateX(0) translateY(0); }
 }
 
 @keyframes gradientMove2 {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  50% {
-    transform: translateX(250px) translateY(-120px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(250px) translateY(-120px); }
+  100% { transform: translateX(0) translateY(0); }
 }
 
 .animate-gradientMove {
@@ -72,6 +69,7 @@
   animation: gradientMove2 8s ease-in-out infinite alternate;
 }
 
+/* override final */
 .text-shadow {
-  text-shadow: 2px 2px 0 #6d0deb;
+  text-shadow: 2px 2px 0 #b08968;
 }
