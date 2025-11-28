@@ -6,7 +6,7 @@ const TypewriterComponent = () => {
     <div className="notranslate mt-5 text-3xl font-bold">
       <Typewriter
         options={{
-          strings: ["Python", "Machine Learning", "Artificial Intelligence", "others"],
+          strings: ["Python", "Machine Learning", "Artificial Intelligence", "Math"],
           autoStart: true,
           loop: true,
         }}
