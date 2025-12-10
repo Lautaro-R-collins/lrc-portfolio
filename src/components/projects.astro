@@ -1,0 +1,246 @@
+---
+import imgNote from "../assets/img-projects/div-pro.png";
+import urbanStyle from "../assets/img-projects/we.png";
+---
+
+<style>
+.slider-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* EL CARRUSEL */
+.slide {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* SLIDE PEQUEÑO */
+.item {
+  min-width: 240px;
+  height: 340px;
+  border-radius: 25px;
+  background-size: cover;
+  background-position: center;
+  transition: 0.4s ease;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* SLIDE PRINCIPAL */
+.item.main {
+  min-width: 100%;
+  height: 550px;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  transform: scale(1.02);
+}
+
+/* 🔥 Overlay global oscuro */
+.item.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* 🔥 Degradado inferior */
+.item.main::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.3) 35%,
+    rgba(0,0,0,0.6) 100%
+  );
+  z-index: 2;
+}
+
+/* 🔥 Fades laterales */
+.side-fade {
+  position: absolute;
+  top: 0;
+  width: 160px;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.side-left {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.side-right {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  z-index: 10;
+  color: white;
+  max-width: 350px;
+}
+
+.hero-content h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  background: white;
+  color: black;
+  padding: 10px 25px;
+  font-size: 15px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* MINI-CARDS */
+.hero-cards {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+}
+
+.hero-card {
+  width: 180px;
+  height: 260px;
+  border-radius: 25px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+}
+
+/* CONTROLES */
+.controls {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  z-index: 20;
+}
+
+.btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .item.main {
+    height: 420px;
+  }
+  .hero-content h2 {
+    font-size: 32px;
+  }
+  .hero-card {
+    width: 140px;
+    height: 200px;
+  }
+}
+</style>
+
+<div class="slider-container">
+
+  <div class="slide" id="slide">
+
+    <!-- ========= MAIN SLIDE (HERO) ========= -->
+    <div 
+      class="item main"
+      style={`background-image: url(${urbanStyle.src})`}
+    >
+      <!-- Fades laterales -->
+      <div class="side-fade side-left"></div>
+      <div class="side-fade side-right"></div>
+
+      <!-- Contenido hero -->
+      <div class="hero-content">
+        <h2>Divina Providencia</h2>
+        <p>Tu escape rural cerca de Silvania y Fusagasugá.</p>
+        <div class="hero-btn">Ver más</div>
+      </div>
+
+      <!-- Mini cards -->
+      <div class="hero-cards">
+        <div class="hero-card" style={`background-image:url(${imgNote.src})`}></div>
+        <div class="hero-card" style={`background-image:url(${imgNote.src})`}></div>
+      </div>
+
+      <!-- Botones -->
+      <div class="controls">
+        <div class="btn" id="prev">⬅️</div>
+        <div class="btn" id="next">➡️</div>
+      </div>
+    </div>
+
+    <!-- ========= SLIDES PEQUEÑOS (THUMBNAILS) ========= -->
+    <div class="item" style={`background-image:url(${imgNote.src})`}></div>
+    <div class="item" style={`background-image:url(${imgNote.src})`}></div>
+
+  </div>
+
+</div>
+
+<script is:raw>
+document.addEventListener("DOMContentLoaded", () => {
+  const slide = document.querySelector("#slide");
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+
+  function updateMain() {
+    const items = document.querySelectorAll(".item");
+    items.forEach(el => el.classList.remove("main"));
+    items[0].classList.add("main");
+  }
+
+  next.addEventListener("click", () => {
+    slide.append(slide.children[0]);
+    updateMain();
+  });
+
+  prev.addEventListener("click", () => {
+    slide.prepend(slide.children[slide.children.length - 1]);
+    updateMain();
+  });
+});
+</script>

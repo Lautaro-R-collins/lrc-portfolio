@@ -36,28 +36,23 @@ const CategoryIcons = {
 const SkillsList = () => {
   const [openItem, setOpenItem] = useState(null);
 
-const skills = {
-  "What technologies do I use?": [
-    "My main stack includes HTML5, CSS3, modern JavaScript (ES6+), TypeScript, Bootstrap 5, Tailwind CSS, Astro, and React. I also work with CMS and e-commerce platforms such as WordPress, WooCommerce, Shopify (Liquid), and custom CMS environments. A significant part of my work involves implementing WCAG AA accessibility standards, semantic HTML, and performance best practices to deliver inclusive and optimized user experiences."
-  ],
-
-  "My Experience": [
-    "I specialize in front-end migrations and modernizations for large-scale e-commerce environments. My work includes refactoring legacy HTML/CSS/Bootstrap 3 codebases into accessible, maintainable Bootstrap 5 and semantic HTML structures. I build reusable UI components, reinforce accessibility through proper ARIA usage, keyboard navigation support, and color contrast, and ensure consistent responsiveness across the CMS. I also develop new interfaces using Astro, React, and Tailwind, frequently working from Figma designs and applying accessibility and SEO best practices as a core part of the development process."
-  ],
-
-  "My Background": [
-    "My training combines technical education with continuous self-learning. Through programs like Oracle Next Education (ONE), Alura, SENA, and independent development, I have built strong foundations in modern web development, UI/UX principles, accessibility, and SEO. I stay up-to-date with industry standards, focusing on frameworks such as React, Next.js, Astro, and best practices for building accessible, scalable interfaces."
-  ],
-
-  "How do I work in a team?": [
-    "I collaborate effectively with designers, PMs, QA, and other developers, ensuring that accessibility, maintainability, and clarity are part of every deliverable. I use Git and GitHub for version control, code reviews, and structured workflows. I document my decisions, communicate openly, and prioritize solutions that scale well for both end-users and the development team."
-  ],
-
-  "Agile Methodologies": [
-    "I work with Scrum and Kanban methodologies, participating in sprints, daily stand-ups, and iterative improvements. I use Jira, Trello, and GitHub Projects to plan, track, and document progress. I incorporate accessibility considerations early in the development cycle, ensuring that features meet WCAG AA standards as part of the definition of done."
-  ]
-};
-
+  const skills = {
+    "¿Qué tecnologías uso?": [
+      "Actualmente trabajo con tecnologías como React, Next.js, Vue.js, Astro, tailwind, Boostrap y demas librerias y frameworks para el frontend y en el backend trabajo con Node.js, Express, MongoDB, Firebase, entre otras.",
+    ],
+    "Mi Experiencia": [
+      "Tengo experiencia trabajando en startups y consultoras tecnológicas, desarrollando y maquetando sitios web a partir de diseños en Figma. Para ello, utilizo tecnologías frontend como Astro y React, junto con Tailwind CSS y otras librerías y frameworks para el estilizado y la optimización de interfaces.",
+    ],
+    "Mi formacion": [
+      "Estudié una tecnicatura en automatización de grado universitaria en el ITU, lo que me brindó las bases en programación. Posteriormente, decidí enfocarme en el desarrollo web y de software estudiando en el ITU. Ademas, realicé diversos cursos, diplomados y capacitaciones en grandes universidades Argentinas, como la UTN y el Instituto Tecnológico Universitario, tambien, complemento mi formación con el aprendizaje autodidacta, lo que me permite mantenerme actualizado con los avances tecnológicos en el desarrollo de software.",
+    ],
+    "¿Cómo trabajo en equipo?": [
+      "Tengo experiencia trabajando en equipos multidisciplinarios, donde me he encargado del desarrollo frontend de aplicaciones web. Para ello, utilizo metodologías ágiles como Scrum y Kanban, además de herramientas de control de versiones como Git y GitHub para gestionar el flujo de trabajo. También cuento con experiencia en el uso de herramientas de gestión de proyectos como Trello y Jira, facilitando la organización y colaboración dentro del equipo.",
+    ],
+    "Metodolgias Agiles": [
+      "He trabajado con metodologías ágiles como Scrum y Kanban. En Scrum, participé en sprints de dos semanas, donde al finalizar cada sprint realizaba un pull request (PR) con mi trabajo, el cual pasaba por una fase de revisión y corrección antes de ser fusionado y enviado a producción. También he trabajado con Kanban, utilizando tableros para gestionar tareas y moverlas según su estado de progreso. Además, participé en reuniones diarias (dailies) para planificar y reportar avances del proyecto, asegurando una comunicación eficiente dentro del equipo.",
+    ],
+  };
 
   const toggleItem = (item) => {
     setOpenItem(openItem === item ? null : item);
@@ -67,7 +62,7 @@ const skills = {
     <div className="flex flex-col items-center px-4 text-left">
       <div className="mx-auto w-full max-w-4xl">
         <h2 className="text-white text-center text-4xl font-bold drop-shadow-[2px_2px_0_#7836cf]">
-          About me and my work
+          Sobre mí y mi trabajo
         </h2>
         <ul className="mt-8 space-y-4 text-lg drop-shadow-[2px_2px_0_#7836cf]">
           {Object.entries(skills).map(([category, items]) => (

@@ -6,12 +6,14 @@ import AboutHome from "../components/home/aboutHome/aboutHome.astro";
 import HomeProyect from "../components/home/homeProyect/homeProyect.astro";
 import FAQS from "../components/home/faqs/faqs.jsx";
 import Banner from "../components/commons/banners/banner.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout>
   <Header />
   <Slider />
   <AboutHome />
+  <Projects />
   <HomeProyect />
   <FAQS client:visible />
   <Banner />
