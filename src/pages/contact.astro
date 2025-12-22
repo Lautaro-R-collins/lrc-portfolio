@@ -1,63 +1,86 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MiFoto from "../assets/img/MiFoto.png";
+import MiFoto from "../assets/img/MiFoto.jpg";
 import CopyMail from "../components/links/copyMail.jsx";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const links = [
   {
     href: "https://www.linkedin.com/in/nicolas-morales-663297a3/",
     label: "LinkedIn",
+    icon: FaLinkedin,
   },
-  { href: "https://github.com/NicoAndDestroy", label: "GitHub" },
-  { href: "mailto:nickdev@vault.com", label: "Email" },
+  {
+    href: "https://github.com/NicoAndDestroy",
+    label: "GitHub",
+    icon: FaGithub,
+  },
+  {
+    href: "mailto:jnicolasmoraless@hotmail.com",
+    label: "Email",
+    icon: FaEnvelope,
+  },
 ];
 ---
 
 <Layout>
   <section
-    class="bg-gray-900 flex min-h-screen flex-col items-center justify-center px-6"
+    class="bg-gray-900 flex min-h-screen flex-col items-center justify-center px-6 text-white"
   >
-    <div class="mb-2 mt-11">
-      <div class="mb-2 mt-11">
-        <div class="relative flex items-center justify-center">
-          <!-- Foto con borde -->
-          <img
-            src={MiFoto.src}
-            alt="Foto de Lautaro"
-            class="border-primary h-32 w-32 rounded-full shadow-lg"
-          />
+    <!-- Header -->
+    <div class="mb-12 text-center max-w-xl">
+      <div class="relative mx-auto mb-6 flex items-center justify-center">
+        <img
+          src={MiFoto.src}
+          alt="Photo of Nicolas Morales"
+          class="border-primary h-32 w-32 rounded-full shadow-lg z-10"
+        />
 
-          <!-- Texto circular alrededor de la foto -->
-          <svg
-            viewBox="0 0 200 200"
-            class="animate-spin-slow absolute h-48 w-48"
-          >
-            <path
-              id="circlePathText"
-              d="M100,100 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"
-              fill="none"></path>
-            <text fill="#69c7c7" font-size="18" font-weight="bold">
-              <textPath href="#circlePathText" startOffset="0%">
-                ✦ Hola ! ✦ Estoy disponible para nuevas oportunidades!
-              </textPath>
-            </text>
-          </svg>
-        </div>
+        <!-- Circular text -->
+        <svg
+          viewBox="0 0 200 200"
+          class="absolute h-48 w-48 animate-spin-slow opacity-80"
+          aria-hidden="true"
+        >
+          <path
+            id="circlePathText"
+            d="M100,100 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"
+            fill="none"
+          />
+          <text fill="#69c7c7" font-size="16" font-weight="600">
+            <textPath href="#circlePathText">
+              ✦ Open to new opportunities ✦ Let’s work together
+            </textPath>
+          </text>
+        </svg>
       </div>
+
+      <h1 class="text-3xl md:text-4xl font-bold">
+        Let’s build something great
+      </h1>
+
+      <p class="mt-4 text-gray-400">
+        I’m currently open to remote opportunities and collaborations.
+        Feel free to reach out — I’m always happy to connect.
+      </p>
     </div>
 
+    <!-- Copy Email -->
     <CopyMail client:visible />
 
-    <!-- Lista de Links -->
-    <div class="w-full max-w-xl space-y-4">
+    <!-- Links -->
+    <div class="mt-8 w-full max-w-md space-y-4">
       {
         links.map((link) => (
           <a
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="block font-bold w-full rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8] px-6 py-3 text-center text-white transition "
+            class="group flex items-center justify-center gap-3 rounded-lg bg-primary px-6 py-3 font-semibold text-white transition-all
+              hover:bg-secondary hover:-translate-y-0.5
+              drop-shadow-[2px_2px_0_#0debd8] active:translate-y-0"
           >
+            <link.icon class="text-xl opacity-90 group-hover:scale-110 transition-transform" />
             {link.label}
           </a>
         ))
@@ -68,11 +91,11 @@ const links = [
 
 <style>
   .animate-spin-slow {
-    animation: spin 25s linear infinite;
+    animation: spin 28s linear infinite;
   }
 
   @keyframes spin {
-    100% {
+    to {
       transform: rotate(360deg);
     }
   }
