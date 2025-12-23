@@ -1,9 +1,11 @@
 ---
 import { HiArrowRight } from "react-icons/hi";
 import MiFoto from "../../../assets/img/MiFoto.jpg";
+import AboutScroll from "./AboutScroll.jsx";
 ---
 
 <section class="relative flex items-center justify-center px-4 pt-16">
+  <!-- Glow background -->
   <div
     class="absolute inset-0 -z-10 mx-auto max-w-6xl blur-3xl"
     aria-hidden="true"
@@ -11,43 +13,47 @@ import MiFoto from "../../../assets/img/MiFoto.jpg";
     <div class="h-[450px] w-full rounded-full bg-gray-900"></div>
   </div>
 
-  <div
-    class="mx-auto flex max-w-4xl flex-col-reverse items-stretch gap-6 md:flex-row"
-  >
+  <AboutScroll client:load>
     <div
-      class="bg-base-900 border-none flex w-full items-center justify-center overflow-hidden rounded-2xl border p-0 shadow-lg md:w-1/3 drop-shadow-[4px_4px_0_#7836cf]"
+      class="mx-auto flex max-w-4xl flex-col-reverse items-stretch gap-6 md:flex-row"
     >
-      <img
-        src={MiFoto.src}
-        alt="Foto de Nicolas Morales"
-        class="h-full w-full object-cover"
-      />
-    </div>
-
-    <div
-      class="bg-gray-900 border-none flex w-full flex-col justify-center rounded-2xl border p-6 shadow-lg md:w-2/3 drop-shadow-[4px_4px_0_#7836cf]"
-    >
-      <h2 class="text-white text-4xl font-bold drop-shadow-[2px_2px_0_#7836cf]">
-        About me
-      </h2>
-      <p class="mt-2 font-semibold">
-        Hi there!, My name is Nicolas, and I’m a Front-End Developer with a strong focus on
-        user experience and CMS-driven platforms. I work with technologies such
-        as React, Astro, JavaScript, TypeScript, Bootstrap, Tailwind CSS, HTML,
-        CSS, and other modern front-end tools. I also specialize in UX/UI design
-        to create clean, intuitive, and high-performing digital experiences.
-      </p>
-
-      <a
-        href="/about"
-        class="group mt-4 inline-flex items-center text-primary font-bold transition-all"
+      <!-- Image -->
+      <div
+        class="about-reveal bg-base-900 flex w-full items-center justify-center overflow-hidden rounded-2xl shadow-lg md:w-1/3 drop-shadow-[4px_4px_0_#7836cf]"
       >
-        More About Me
-        <HiArrowRight
-          className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
-          size={18}
+        <img
+          src={MiFoto.src}
+          alt="Foto de Nicolas Morales"
+          class="h-full w-full object-cover"
         />
-      </a>
+      </div>
+
+      <!-- Text -->
+      <div
+        class="about-reveal bg-gray-900 flex w-full flex-col justify-center rounded-2xl p-6 shadow-lg md:w-2/3 drop-shadow-[4px_4px_0_#7836cf]"
+      >
+        <h2 class="text-4xl font-bold text-white drop-shadow-[2px_2px_0_#7836cf]">
+          About me
+        </h2>
+
+        <p class="mt-3 font-semibold">
+          Hi there! My name is Nicolas, and I’m a Front-End Developer with a strong
+          focus on user experience and CMS-driven platforms. I work with
+          technologies such as React, Astro, JavaScript, TypeScript, Bootstrap,
+          Tailwind CSS, HTML, CSS, and other modern front-end tools.
+        </p>
+
+        <a
+          href="/about"
+          class="group mt-4 inline-flex items-center font-bold text-primary transition-all"
+        >
+          More About Me
+          <HiArrowRight
+            className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
+            size={18}
+          />
+        </a>
+      </div>
     </div>
-  </div>
+  </AboutScroll>
 </section>
