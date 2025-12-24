@@ -1,6 +1,7 @@
 ---
 import HomeProjectCard from "./homeProyectCard.astro";
 import { projects } from "../../../data/projetsAboutData.js";
+import ProjectsScroll from "../../home/homeProyect/ProjectsScroll.jsx";
 ---
 
 <section class="py-10 relative z-10">
@@ -9,10 +10,12 @@ import { projects } from "../../../data/projetsAboutData.js";
   >
     Featured Projects
   </h2>
-
-  <div class="mt-8 grid gap-6 md:grid-cols-2 max-w-[930px] mx-auto px-4">
-    {projects.map((p) => <HomeProjectCard {...p} />)}
-  </div>
+     <!-- SCROLL STORYTELLING  -->
+  <ProjectsScroll client:load>
+    <div class="mt-8 grid gap-6 md:grid-cols-2 max-w-[930px] mx-auto px-4">
+      {projects.map((p) => <HomeProjectCard {...p} />)}
+    </div>
+  </ProjectsScroll>
   <div class="mt-12 flex justify-center">
     <a
       href="/proyects"
