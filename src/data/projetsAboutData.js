@@ -9,6 +9,7 @@ export const projects = [
     tecnologias: ["React", "Tailwind", "Astro", "JavaScript"],
     demo: "https://weddingincartagena.com/",
     codigo: "https://gitlab.com/uroboros2/weddingincartagena.com",
+   featured: true
   },
   {
     titulo: "Divina Providencia – Airbnb landing page",
