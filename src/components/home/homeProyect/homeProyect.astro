@@ -1,7 +1,7 @@
 ---
 import HomeProjectCard from "./homeProyectCard.astro";
 import { projects } from "../../../data/projetsAboutData.js";
-import ProjectsScroll from "../../storytelling/ProjectsScroll.jsx";
+import ProjectsScroll from "./ProjectsScroll.astro";
 
 const featured = projects.find(p => p.featured);
 const others = projects.filter(p => !p.featured);

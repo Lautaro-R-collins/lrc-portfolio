@@ -1,0 +1,41 @@
+---
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const { children } = Astro.props;
+---
+
+<section class="project-scroll">
+  <div class="project-scroll__inner">
+    {children}
+  </div>
+</section>
+
+<style>
+  .project-scroll {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project-scroll__inner {
+    will-change: transform;
+  }
+</style>
+
+<script>
+  const sectionRef = document.querySelector('.project-scroll__inner');
+  
+  gsap.from(sectionRef, {
+    opacity: 0,
+    y: 40,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: sectionRef,
+      start: "top 70%",
+    },
+  });
+</script>
