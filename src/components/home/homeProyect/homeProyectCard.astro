@@ -7,9 +7,10 @@ export interface Props {
   tecnologias: string[];
   demo: string;
   codigo: string;
+  live: string;
 }
 
-const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
+const { titulo, imagen, tecnologias, demo, codigo, live } = Astro.props;
 ---
 
 <div
@@ -36,12 +37,12 @@ const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
 
     <div class="mt-auto flex justify-between gap-3">
       <a
-        href={demo}
+        href={live}
         target="_blank"
         rel="noopener noreferrer"
         class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
       >
-        Demo
+        Live
       </a>
 
       <a
