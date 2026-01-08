@@ -2,15 +2,16 @@
 import { HiArrowRight } from "react-icons/hi";
 
 export interface Props {
+  slug: string;
   titulo: string;
   imagen: string;
-  tecnologias: string[];
-  demo: string;
-  codigo: string;
-  live: string;
+  tecnologias?: string[];
+  demo?: string;   // 👈 esto
+  codigo?: string;
 }
 
-const { titulo, imagen, tecnologias, demo, codigo, live } = Astro.props;
+const { slug, titulo, imagen, tecnologias = [], demo, codigo } = Astro.props;
+
 ---
 
 <div
@@ -25,25 +26,27 @@ const { titulo, imagen, tecnologias, demo, codigo, live } = Astro.props;
   <div class="flex flex-col grow p-3">
     <h3 class="text-lg font-semibold mb-2 text-white">{titulo}</h3>
 
-    <div class="flex flex-wrap gap-2 mb-4">
-      {
-        tecnologias.map((tech) => (
-          <span class="rounded-md bg-[#7836cf]/20 text-[#a27ed1] px-2 py-0.5 text-xs font-semibold">
-            {tech}
-          </span>
-        ))
-      }
-    </div>
+   {tecnologias.length > 0 && (
+  <div class="flex flex-wrap gap-2 mb-4">
+    {tecnologias.map((tech) => (
+      <span class="rounded-md bg-[#7836cf]/20 text-[#a27ed1] px-2 py-0.5 text-xs font-semibold">
+        {tech}
+      </span>
+    ))}
+  </div>
+)}
 
     <div class="mt-auto flex justify-between gap-3">
-      <a
-        href={live}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
-      >
-        Live
-      </a>
+      {demo && (
+  <a
+    href={demo}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
+  >
+    Live
+  </a>
+)}
 
       <a
         href={codigo}
