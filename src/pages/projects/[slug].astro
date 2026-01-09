@@ -160,19 +160,18 @@ const { project } = Astro.props as { project: Project };
     </CaseSection>
   )}
 
-  <!-- =========================
-       DEVELOPMENT
-  ========================== -->
-  {project.development?.focus && (
-    <CaseSection title="Development" eyebrow="Implementation">
-      <ul class="list-disc pl-6 space-y-2">
-        {project.development.focus.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    </CaseSection>
-  )}
-
+<!-- =========================
+     DEVELOPMENT
+========================== -->
+{project.development && (
+  <CaseSection title="Development" eyebrow="Implementation">
+    <ul class="list-disc pl-6 space-y-2">
+      {project.development.map((item: string) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </CaseSection>
+)}
   <!-- =========================
        FINAL PROTOTYPE (LONDRI)
   ========================== -->
