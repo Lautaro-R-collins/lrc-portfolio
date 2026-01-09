@@ -36,26 +36,43 @@ const { slug, titulo, imagen, tecnologias = [], demo, codigo } = Astro.props;
   </div>
 )}
 
-    <div class="mt-auto flex justify-between gap-3">
-      {demo && (
+    <div class="mt-auto flex flex-col gap-3">
+  <!-- Primary action: Case Study -->
   <a
-    href={demo}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
+    href={`/projects/${slug}`}
+    class="w-full text-center rounded-md bg-primary py-2 text-sm font-semibold text-gray-900
+           hover:bg-secondary transition-colors"
+    aria-label={`View case study for ${titulo}`}
   >
-    Live
+    Case Study
   </a>
-)}
 
+  <!-- Secondary actions -->
+  <div class="flex gap-3">
+    {demo && (
+      <a
+        href={demo}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full text-center border border-[#7836cf] text-[#7836cf]
+               py-1.5 rounded-md text-sm font-semibold
+               hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
+      >
+        Live
+      </a>
+    )}
+
+    {codigo && (
       <a
         href={codigo}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
+        class="w-full text-center border border-[#7836cf] text-[#7836cf]
+               py-1.5 rounded-md text-sm font-semibold
+               hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
       >
         Código
       </a>
-    </div>
+    )}
   </div>
 </div>

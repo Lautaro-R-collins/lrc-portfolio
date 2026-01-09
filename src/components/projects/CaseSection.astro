@@ -1,0 +1,24 @@
+---
+export interface Props {
+  title: string;
+  eyebrow?: string;
+}
+
+const { title, eyebrow } = Astro.props;
+---
+
+<section class="mt-20">
+  {eyebrow && (
+    <p class="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
+      {eyebrow}
+    </p>
+  )}
+
+  <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white">
+    {title}
+  </h2>
+
+  <div class="mt-6 space-y-4 text-gray-300 leading-relaxed">
+    <slot />
+  </div>
+</section>

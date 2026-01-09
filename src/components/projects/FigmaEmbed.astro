@@ -1,0 +1,27 @@
+---
+export interface Props {
+  figmaUrl: string;
+  title?: string;
+}
+
+const { figmaUrl, title = "Figma Wireframes" } = Astro.props;
+---
+
+<section class="mt-10">
+  <h3 class="text-lg font-semibold mb-4">{title}</h3>
+
+  <div class="relative aspect-video w-full overflow-hidden rounded-xl border border-white/10">
+    <iframe
+      src={`https://www.figma.com/embed?embed_host=astro&url=${encodeURIComponent(figmaUrl)}`}
+      allowfullscreen
+      loading="lazy"
+      class="absolute inset-0 h-full w-full"
+      title={title}
+    ></iframe>
+  </div>
+
+  <p class="mt-3 text-sm text-gray-400">
+    Selected wireframes from the early UX phase. These layouts were used to
+    validate structure, hierarchy, and user flow before moving into UI design.
+  </p>
+</section>
