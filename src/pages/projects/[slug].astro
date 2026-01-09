@@ -17,7 +17,10 @@ const { project } = Astro.props as { project: Project };
 ---
 
 <ProjectLayout>
-  <!-- HERO -->
+
+  <!-- =========================
+       HERO
+  ========================== -->
   <section class="pb-20 border-b border-white/10">
     <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">
       {project.titulo}
@@ -28,122 +31,169 @@ const { project } = Astro.props as { project: Project };
     </p>
 
     <div class="mt-8 flex flex-wrap gap-4">
-      {
-        project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener"
-            class="rounded-md bg-primary px-6 py-3 font-semibold text-gray-900"
-          >
-            View Live Site
-          </a>
-        )
-      }
+      {project.demo && (
+        <a
+          href={project.demo}
+          target="_blank"
+          rel="noopener"
+          class="rounded-md bg-primary px-6 py-3 font-semibold text-gray-900"
+        >
+          View Live Site
+        </a>
+      )}
 
       <a
         href="/projects"
-        class="rounded-md border border-white/20 px-6 py-3 font-semibold hover:bg-white hover:text-gray-900 transition"
+        class="rounded-md border border-white/20 px-6 py-3 font-semibold
+               hover:bg-white hover:text-gray-900 transition"
       >
         Back to Projects
       </a>
     </div>
   </section>
 
-  <!-- CONTEXT -->
-  <CaseSection title="Context & Role" eyebrow="Overview">
-    <p>
-      Wedding in Cartagena is a luxury wedding brand focused on creating
-      high-end, emotionally driven experiences for international couples.
-    </p>
+  <!-- =========================
+       CONTEXT
+  ========================== -->
+  {project.context && (
+    <CaseSection title="Context & Role" eyebrow="Overview">
+      {project.context.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </CaseSection>
+  )}
 
-    <p>
-      I led the project end-to-end: UX research, UI design in Figma,
-      accessibility decisions, front-end implementation, and performance
-      optimization.
-    </p>
-  </CaseSection>
+  <!-- =========================
+       CHALLENGE
+  ========================== -->
+  {project.challenge && (
+    <CaseSection title="The Challenge" eyebrow="Problem">
+      <ul class="list-disc pl-6 space-y-2">
+        {project.challenge.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </CaseSection>
+  )}
 
-  <!-- CHALLENGE -->
-  <CaseSection title="The Challenge" eyebrow="Problem">
-    <ul class="list-disc pl-6 space-y-2">
-      <li>Convey trust and luxury to international users</li>
-      <li>Guide users clearly toward inquiry and contact</li>
-      <li>Maintain fast performance with rich visual content</li>
-      <li>Ensure accessibility without compromising aesthetics</li>
-    </ul>
-  </CaseSection>
+  <!-- =========================
+       RESEARCH (LONDRI)
+  ========================== -->
+  {project.research && (
+    <CaseSection title="Research & Discovery" eyebrow="UX Research">
+      <ul class="list-disc pl-6 space-y-2">
+        {project.research.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </CaseSection>
+  )}
 
-  <!-- UX/UI -->
+  <!-- =========================
+       UX PROCESS (LONDRI)
+  ========================== -->
+  {project.uxProcess && (
+    <CaseSection title="UX Process" eyebrow="Methodology">
+      <ul class="list-disc pl-6 space-y-2">
+        {project.uxProcess.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </CaseSection>
+  )}
 
-  <CaseSection title="Branding & Visual Foundations" eyebrow="UX / UI">
-    <h3>
-      Color choices and typography were validated to maintain sufficient
-      contrast and readability across devices, supporting accessibility from the
-      branding stage.
-    </h3>
+  <!-- =========================
+       BRANDING
+  ========================== -->
+  {project.figmaBranding && (
+    <CaseSection title="Branding & Visual Foundations" eyebrow="UX / UI">
+      <p>
+        Before designing screens, I established a basic but intentional visual
+        foundation to ensure consistency across the product.
+      </p>
 
-    <p>
-      Before designing screens, I established a basic but intentional visual
-      foundation to ensure consistency across the product.
-    </p>
+      <p>
+        This included defining brand colors, typography hierarchy, and logo usage,
+        aligning the visual identity with the brand’s positioning.
+      </p>
 
-    <p>
-      This included defining brand colors, typography hierarchy, and logo usage,
-      aligning the visual identity with the brand’s luxury and emotional
-      positioning.
-    </p>
+      <FigmaEmbed
+        figmaUrl={project.figmaBranding}
+        title="Branding & Visual System"
+      />
+    </CaseSection>
+  )}
 
-    <p>
-      These branding decisions directly informed UI components, spacing,
-      contrast, and accessibility considerations throughout the interface.
-    </p>
+  <!-- =========================
+       WIREFRAMES
+  ========================== -->
+  {project.figmaWireframes && (
+    <CaseSection title="UX Structure & Wireframes" eyebrow="UX">
+      <p>
+        Wireframes were used to validate hierarchy, user flows, and layout
+        decisions before moving into high-fidelity UI design.
+      </p>
 
-    <FigmaEmbed
-      figmaUrl="https://www.figma.com/design/trBh9DnToIuwYcjzlc0Gnq/Le-Mariage-Branding"
-      title="Branding & Visual System – Le Mariage"
-    />
-  </CaseSection>
+      <FigmaEmbed
+        figmaUrl={project.figmaWireframes}
+        title="UX Wireframes & Structure"
+      />
+    </CaseSection>
+  )}
 
-  <CaseSection title="UX / UI Process" eyebrow="Design">
-    <p>
-      The UX process focused on clarity, emotional storytelling, and conversion.
-      Every design decision was validated against user intent and accessibility.
-    </p>
+  <!-- =========================
+       FIGMA STAGES (LONDRI)
+  ========================== -->
+  {project.figmaStages && (
+    <CaseSection title="Design Evolution" eyebrow="Figma">
+      {project.figmaStages.map((stage) => (
+        <div class="mb-12">
+          <h3 class="text-xl font-semibold mb-2">{stage.label}</h3>
+          <p class="text-gray-400 mb-4">{stage.description}</p>
 
-    <ul class="list-disc pl-6 space-y-2">
-      <li>Information architecture & user flows</li>
-      <li>Wireframes and layout validation</li>
-      <li>UI system and component consistency</li>
-      <li>Contrast, hierarchy and keyboard accessibility</li>
-    </ul>
+          <FigmaEmbed
+            figmaUrl={stage.url}
+            title={stage.label}
+          />
+        </div>
+      ))}
+    </CaseSection>
+  )}
 
-    <FigmaEmbed
-      figmaUrl="https://www.figma.com/design/cqZ8FOHjUuEIlI78kx1JIH/Estructura-Weddingincartagena"
-      title="UX Wireframes & Structure"
-    />
-  </CaseSection>
+  <!-- =========================
+       DEVELOPMENT
+  ========================== -->
+  {project.development?.focus && (
+    <CaseSection title="Development" eyebrow="Implementation">
+      <ul class="list-disc pl-6 space-y-2">
+        {project.development.focus.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </CaseSection>
+  )}
 
-  <!-- DEVELOPMENT -->
-  <CaseSection title="Development" eyebrow="Implementation">
-    <ul class="list-disc pl-6 space-y-2">
-      <li>Astro for static-first performance</li>
-      <li>Tailwind CSS for scalable UI implementation</li>
-      <li>Semantic HTML for accessibility & SEO</li>
-      <li>Minimal JavaScript to reduce cognitive and performance load</li>
-    </ul>
-  </CaseSection>
+  <!-- =========================
+       FINAL PROTOTYPE (LONDRI)
+  ========================== -->
+  {project.prototype && (
+    <CaseSection title="Final Interactive Prototype" eyebrow="Prototype">
+      <FigmaEmbed
+        figmaUrl={project.prototype.url}
+        title={project.prototype.label}
+      />
+    </CaseSection>
+  )}
 
-  <!-- OUTCOME -->
-  <CaseSection title="Outcome & Learnings" eyebrow="Results">
-    <p>
-      The final product delivers a fast, accessible and emotionally engaging
-      experience aligned with the brand’s luxury positioning.
-    </p>
+  <!-- =========================
+       OUTCOME
+  ========================== -->
+  {project.outcome && (
+    <CaseSection title="Outcome & Learnings" eyebrow="Results">
+      {project.outcome.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </CaseSection>
+  )}
 
-    <p>
-      This project reinforced the importance of treating performance and
-      accessibility as core UX requirements, not technical afterthoughts.
-    </p>
-  </CaseSection>
 </ProjectLayout>
