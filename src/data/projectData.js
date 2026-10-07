@@ -13,6 +13,7 @@ import ChatAi from "../assets/img-projects/ChatAI.png";
 import ProductivityApp from "../assets/img-projects/productivityApp.png";
 import AutomotoresFront from "../assets/img-projects/automotoresFront.jpg";
 import TrackerSubscription from "../assets/img-projects/img-substracker.png";
+import LectorPdf from "../assets/img-projects/lectorPDF.png";
 
 export const proyectos = [
   {
@@ -35,6 +36,16 @@ export const proyectos = [
     codigo: "https://github.com/Lautaro-R-collins/React-E-commerce.git",
     categoria: "fullstack",
   },
+    {
+    titulo: "Biblioteca online",
+    descripcion:
+      "Aplicación web para visualizar y guardar libros en formato PDF. Incluye un modo de lectura con Pomodoro, resaltador, notas y otras herramientas, además de una biblioteca personal con persistencia local y sincronización en la nube.",
+    imagen: LectorPdf.src,
+    tecnologias: ["React", "Tailwind", "Express", "MongoDB"],
+    demo: "https://lector-pdf-online.vercel.app",
+    codigo: "https://github.com/Lautaro-R-collins/lector-pdf-online.git",
+    categoria: "fullstack",
+  },
   {
     titulo: "Productivity App",
     descripcion:
@@ -45,6 +56,7 @@ export const proyectos = [
     codigo: "https://github.com/Lautaro-R-collins/productivity-App.git",
     categoria: "fullstack",
   },
+
   {
     titulo: "Chat AI",
     descripcion:
@@ -61,10 +73,10 @@ export const proyectos = [
     descripcion:
       "Aplicación de seguimiento de suscripciones para gestionar y controlar tus suscripciones mensuales.",
     imagen: TrackerSubscription.src,
-    tecnologias: ["React", "tailwind" ],
+    tecnologias: ["React", "tailwind"],
     demo: "https://subscriptions-tracker-chi.vercel.app",
     codigo: "https://github.com/Lautaro-R-collins/Subscriptions-Tracker.git",
-    categoria: "frontend"
+    categoria: "frontend",
   },
   {
     titulo: "Automotores Frontend",
@@ -244,7 +256,7 @@ export const proyectos = [
     codigo: "https://github.com/Lautaro-R-collins/PlaniFy-organization-app",
     categoria: "frontend",
   },
-    {
+  {
     titulo: "Tienda Artesana",
     descripcion:
       "Ecommerce Full-Stack para ver, comprar y vender tus productos, con login para usuarios y vendedores.",
